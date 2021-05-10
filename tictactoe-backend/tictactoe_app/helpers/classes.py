@@ -38,7 +38,8 @@ class MinMaxAlgorithm(PlayAlgorithm):
                     bestScore = score
                     bestMove = key
         insertChar(board, player, bestMove)
-        return ''.join(board.values())
+        board_string = ''.join(board.values())
+        return board_string
 
 
 class MoveHandler():
