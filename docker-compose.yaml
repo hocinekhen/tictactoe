@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  tictactoe-backend:
+    build: ./tictactoe-backend
+    container_name: tictactoe-backend
+    ports:
+      - 8010:8010
+    environment:
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_PASSWORD=hocine
+  tictactoe-front:
+    build: ./tictactoe-frontend
+    container_name: tictactoe-frontend
+    environment:
+      - hosting_port=4200
+      - hosting_server=127.0.0.1
+    ports:
+      - 4200:80
+    links:
+      - tictactoe-backend
+  
